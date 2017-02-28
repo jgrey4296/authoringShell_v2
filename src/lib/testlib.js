@@ -1,7 +1,7 @@
-define([],function(){
+define(['lodash','./second'],function(_, second){
 
     return {
-        value: "this is a test for testlib"
+        value: second
     }
 
 
