@@ -470,6 +470,12 @@
       "resolved": "https://registry.npmjs.org/babel-plugin-syntax-export-extensions/-/babel-plugin-syntax-export-extensions-6.13.0.tgz",
       "dev": true
     },
+    "babel-plugin-syntax-flow": {
+      "version": "6.18.0",
+      "from": "babel-plugin-syntax-flow@>=6.8.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-plugin-syntax-flow/-/babel-plugin-syntax-flow-6.18.0.tgz",
+      "dev": true
+    },
     "babel-plugin-syntax-function-bind": {
       "version": "6.13.0",
       "from": "babel-plugin-syntax-function-bind@>=6.8.0 <7.0.0",
@@ -678,6 +684,12 @@
       "version": "6.22.0",
       "from": "babel-plugin-transform-export-extensions@>=6.22.0 <7.0.0",
       "resolved": "https://registry.npmjs.org/babel-plugin-transform-export-extensions/-/babel-plugin-transform-export-extensions-6.22.0.tgz",
+      "dev": true
+    },
+    "babel-plugin-transform-flow-comments": {
+      "version": "6.22.0",
+      "from": "babel-plugin-transform-flow-comments@>=6.17.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-plugin-transform-flow-comments/-/babel-plugin-transform-flow-comments-6.22.0.tgz",
       "dev": true
     },
     "babel-plugin-transform-function-bind": {
@@ -2283,6 +2295,26 @@
       "version": "1.0.2",
       "from": "flatten@>=1.0.2 <2.0.0",
       "resolved": "https://registry.npmjs.org/flatten/-/flatten-1.0.2.tgz",
+      "dev": true
+    },
+    "flow-babel-webpack-plugin": {
+      "version": "1.0.1",
+      "from": "flow-babel-webpack-plugin@latest",
+      "resolved": "https://registry.npmjs.org/flow-babel-webpack-plugin/-/flow-babel-webpack-plugin-1.0.1.tgz",
+      "dev": true,
+      "dependencies": {
+        "flow-bin": {
+          "version": "0.33.0",
+          "from": "flow-bin@>=0.33.0 <0.34.0",
+          "resolved": "https://registry.npmjs.org/flow-bin/-/flow-bin-0.33.0.tgz",
+          "dev": true
+        }
+      }
+    },
+    "flow-bin": {
+      "version": "0.42.0",
+      "from": "flow-bin@latest",
+      "resolved": "https://registry.npmjs.org/flow-bin/-/flow-bin-0.42.0.tgz",
       "dev": true
     },
     "for-in": {
