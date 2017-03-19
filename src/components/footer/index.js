@@ -20,7 +20,7 @@ export default class Footer extends Component {
 	render() {
 		return (
 			<footer class={style.footer}>
-                <input id="shellInput" type="text" value={this.state.value} onChange={this.handleChange} />
+                <input id="shellInput" type="text" value={this.state.value} onChange={this.handleChange} autofocus />
 			</footer>
 		);
 	}

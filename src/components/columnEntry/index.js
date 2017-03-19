@@ -16,9 +16,11 @@ export default class ColumnEntry extends Component {
 
     render({key, data}, state){
         return (
-                <li>
+                <li class={style.columnEntry}>
+                <p>
                 {data.id} : {data.name()}
-            </li>
+            </p>
+                </li>
         );
     }
 

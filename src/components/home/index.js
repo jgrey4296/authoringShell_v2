@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import style from './style';
-import Test from '../test';
 import Column from '../column';
 import Node from '../node';
 import Footer from '../footer';
