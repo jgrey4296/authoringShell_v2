@@ -1,3 +1,4 @@
 # Javascript Shell Authoring v2
-    Now in [preact](./boilerplate_original.md). 
+    Uses the jgshell.js + rete.js in a preact wrapper to author rule systems and complex trees.  
+    
 
