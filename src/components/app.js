@@ -16,14 +16,22 @@ export default class App extends Component {
 
     constructor(){
         super();
-        this.state = {};
+        this.state = {
+            path: []
+        };
+
+        this.updatePath = this.updatePath.bind(this);
+    }
+
+    updatePath(pathArr) {
+        this.setState({ path: pathArr });
     }
     
 	render() {
 		return (
 			<div id="app">
-				<Header />
-                <Home />
+				<Header path={this.state.path} />
+                <Home pathUpdate={this.updatePath} />
 			</div>
 		);
 	}
