@@ -10,13 +10,45 @@
     position: absolute;
     border-radius: 2%;
     border: 2px solid;
-
+    color : white;
     h1 {
-    	position: relative;
+        background: @lightBlue;
+        position: relative;
         text-align: center;
     }
 
-    ul {
-    text-align: left;
+    h2 {
+        position: relative;
+        text-align: center;
     }
+    
+    p {
+        
+    }
+    
+    ul {
+        list-style-type: none;
+        text-align: center;
+        padding: 0;
+    }
+}
+
+h2.tags {
+    background: @red;
+}
+
+h2.values {
+    background: @green;
+}
+
+ul.tags > li {
+    background: @red;
+    display: inline-block;
+    padding: 1%;
+    margin: 1%;
+    width: auto;
+}
+
+ul.values > li {
+    background: @green;
 }
