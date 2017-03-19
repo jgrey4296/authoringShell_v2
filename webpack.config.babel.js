@@ -7,6 +7,7 @@ import ReplacePlugin from 'replace-bundle-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import path from 'path';
 import V8LazyParseWebpackPlugin from 'v8-lazy-parse-webpack-plugin';
+import FlowBabelWebpackPlugin from 'flow-babel-webpack-plugin';
 const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
@@ -89,6 +90,7 @@ module.exports = {
 	],
 
 	plugins: ([
+        new FlowBabelWebpackPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new ExtractTextPlugin('style.css', {
 			allChunks: true,
