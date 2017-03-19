@@ -2,7 +2,6 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 
 import Header from './header';
-import Footer from './footer';
 import Home from './home';
 import Profile from './profile';
 
@@ -29,7 +28,6 @@ export default class App extends Component {
 					<Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" />
 				</Router>
-                <Footer/>                
 			</div>
 		);
 	}
