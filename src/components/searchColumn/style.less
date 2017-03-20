@@ -1,0 +1,51 @@
+@import '~style/helpers';
+
+@keyframes open {
+    from {
+        width: 0%;
+        opacity: 0.0;
+    }
+    
+    to {
+        width : 30%;
+        opacity: 0.9;
+    }
+}
+
+@keyframes closed {
+    from {
+        width:30%;
+        opacity: 0.9;
+    }
+    
+    to {
+        width: 0%;
+        opacity: 0;
+    }
+}
+
+.SearchColumn {
+    left: 0%;
+    bottom: 57px;
+    top: 57px;
+    width: 0%;
+    opacity: 0.0;
+    position: absolute;
+    padding: 0;
+    background: @blue;
+    z-index: 40;
+    animation-duration : 1s;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+}
+
+.SearchColumn[state=open] {
+    animation-name : open;
+}
+
+.SearchColumn[state=closed] {
+    animation-name: closed;
+}
+.SearchColumn[state=default] {
+    animation-name: none;
+}
