@@ -10,7 +10,7 @@
     "prebuild": "mkdirp build && ncp src/assets build/assets",
     "test": "npm run -s lint && npm run -s test:karma",
     "test:karma": "karma start test/karma.conf.js --single-run",
-    "lint": "eslint {src,test}",
+    "lint": "eslint --fix {src,test}",
     "flow": "node_modules/.bin/flow"
   },
   "keywords": [
@@ -38,6 +38,7 @@
     "cross-env": "^3.1.3",
     "css-loader": "^0.26.1",
     "eslint": "^3.16.1",
+    "eslint-plugin-react": "^6.10.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.10.0",
     "flow-babel-webpack-plugin": "^1.0.1",
