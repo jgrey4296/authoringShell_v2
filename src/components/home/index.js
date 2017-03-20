@@ -3,8 +3,8 @@ import style from './style';
 import Column from '../column';
 import Node from '../node';
 import Footer from '../footer';
+import SearchColumn from '../searchColumn';
 import { Shell } from 'JGShell';
-
 
 export default class Home extends Component {
 
@@ -14,7 +14,9 @@ export default class Home extends Component {
         this.state = {
             parents : [],
             children : [],
-            focusNode : this.shell.cwd()
+            focusNode : this.shell.cwd(),
+            searchState : "default",
+            searchResults : []
         };
     }
 
@@ -24,7 +26,6 @@ export default class Home extends Component {
 
     //function here to be passed to footer.input for parsing and triggering shell changes 
     parseCallback(text){
-        console.log("Received: " + text);
         let parseResult = this.shell.parse(text);
         if (parseResult !== null){
             switch(parseResult.description){
@@ -41,9 +42,18 @@ export default class Home extends Component {
             }
         }
         let result = this.shell.parse('cwd');
+        console.log('Result:',result);
         this.setState({ parents: result.inputs.map((d)=>this.shell.get(d.source.id)) });
         this.setState({ children: result.outputs.map((d)=>this.shell.get(d.dest.id)) });
         this.setState({ focusNode: result.node });
+        if (result.searchResults.length === 0){
+            if(this.state.searchState !== 'default'){
+                this.setState({ searchState: "closed" });
+            }
+        } else if(this.state.searchState !== 'open'){
+            this.setState({ searchState: "open" });
+        }
+        this.setState({ searchResults : result.searchResults.map((d)=>this.shell.get(d))});
         //Pass the path up to send to the header
         this.props.pathUpdate(result.currentPath);
     }
@@ -56,6 +66,7 @@ export default class Home extends Component {
                 <Node data={this.state.focusNode} />
                 <Column pos="5%" side="right" data={this.state.children} name="Children"/>
                 <Footer callback={(text) => { this.parseCallback(text) }}/>
+                <SearchColumn searchState={this.state.searchState} data={this.state.searchResults}/>
                 </div>
 		);
 	}
