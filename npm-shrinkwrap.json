@@ -5196,6 +5196,12 @@
       "from": "preact-compat@3.14.3",
       "resolved": "https://registry.npmjs.org/preact-compat/-/preact-compat-3.14.3.tgz"
     },
+    "preact-css-transition-group": {
+      "version": "1.1.1",
+      "from": "preact-css-transition-group@latest",
+      "resolved": "https://registry.npmjs.org/preact-css-transition-group/-/preact-css-transition-group-1.1.1.tgz",
+      "dev": true
+    },
     "preact-render-to-string": {
       "version": "3.6.0",
       "from": "preact-render-to-string@>=3.2.1 <4.0.0",
