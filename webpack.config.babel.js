@@ -162,8 +162,9 @@ module.exports = {
 		setImmediate: false
 	},
 
-	devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
-
+	//devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
+    devtool : 'source-map',
+    
 	devServer: {
 		port: process.env.PORT || 8080,
 		host: 'localhost',
@@ -171,7 +172,7 @@ module.exports = {
 		publicPath: '/',
 		contentBase: './src',
 		historyApiFallback: true,
-		open: true,
+		open: false,
 		proxy: {
 			// OPTIONAL: proxy configuration:
 			// '/optional-prefix/**': { // path pattern to rewrite
