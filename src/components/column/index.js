@@ -20,7 +20,7 @@ export default class Column extends Component {
             listItems = data.map((d)=><ColumnEntry key={d.id} data={d} />);
         //Need to add the list
         return (
-                <div class={style.column} style={styleString}>
+                <div className={style.column} style={styleString}>
                 <h1>{name}</h1>
                 <ul>
                 {listItems}

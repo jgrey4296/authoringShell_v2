@@ -18,7 +18,7 @@ export default class SearchColumn extends Component {
     render({searchState, data}, state){
         let searchDataRenders = data.map((d)=>(<SearchResult id={d.id} name={d.name()} />));
         return (
-                <div class={style.SearchColumn} state={searchState}>
+                <div className={style.SearchColumn} state={searchState}>
                 {searchDataRenders}
             </div>
         );

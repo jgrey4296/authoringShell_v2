@@ -16,7 +16,7 @@ export default class SearchResult extends Component {
     //Don't forget to destructure:
     render({id, name}, state){
         return (
-                <div class={style.nodeId}><span class={style.colorRed}>({id})</span> : {name}</div>
+                <div className={style.nodeId}><span className={style.colorRed}>({id})</span> : {name}</div>
         );
     }
 

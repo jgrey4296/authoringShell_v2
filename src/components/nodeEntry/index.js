@@ -18,12 +18,12 @@ export default class NodeEntry extends Component {
         let theString = '';
         if (value !== null){
             theString = `${varName} : ${value}`;
-        }else{
+        } else {
             theString = `${varName}`;
         }
         
         return (
-                <li class={style.nodeEntry}>
+                <li className={style.nodeEntry}>
                 {theString}
             </li>
         );
