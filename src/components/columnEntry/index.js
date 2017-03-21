@@ -17,9 +17,8 @@ export default class ColumnEntry extends Component {
     render({key, data}, state){
         return (
                 <li className={style.columnEntry}>
-                <p>
-                {data.id} : {data.name()}
-            </p>
+                <span type='id'>{data.id}:  </span>
+                <span type='name'>{data.name()}</span>
                 </li>
         );
     }

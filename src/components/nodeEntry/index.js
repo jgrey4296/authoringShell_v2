@@ -15,16 +15,10 @@ export default class NodeEntry extends Component {
 
     //Don't forget to destructure:
     render({ varName, value }, state){
-        let theString = '';
-        if (value !== null){
-            theString = `${varName} : ${value}`;
-        } else {
-            theString = `${varName}`;
-        }
-        
         return (
                 <li className={style.nodeEntry}>
-                {theString}
+                <span value='name'>{varName}{value !== null ? ':' : ''} </span>
+                {value !== null ? <span value='value'>{value}</span> : '' }
             </li>
         );
     }

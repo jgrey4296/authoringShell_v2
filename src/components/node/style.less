@@ -1,9 +1,10 @@
 @import '~style/helpers';
 
 .node {
+    display: block;
 	top : 10%;
     bottom: 10%;
-	background: black;
+	background: @black;
     left: 35%;
     right:35%;
     width: auto;
@@ -11,47 +12,65 @@
     border-radius: 2%;
     border: 2px solid;
     color : white;
+    overflow: hidden;
     h1 {
+        display: block;
         background: @lightBlue;
-        position: relative;
         text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 10%;
+        padding-right: 10%;
+        
+        span[type=id] {
+            color: red;
+        }
+        span[type=name]{
+            color: black;
+        }
     }
 
     h2 {
         position: relative;
         text-align: center;
     }
+
+    h2.tags {
+        background: @red;
+    }
     
-    p {
-        
+    h2.values {
+        background: @green;
     }
     
     ul {
         list-style-type: none;
         text-align: center;
         padding: 0;
+        overflow: scroll;
     }
-}
 
-h2.tags {
-    background: @red;
-}
+    ul.tags {
+        height: 10%;
+    }
 
-h2.values {
-    background: @green;
-}
+    ul.tags > li {
+        display: inline-block;
+        background: @red;
+        padding: 1%;
+        margin: 1%;
+        width: auto;
+    }
 
-ul.tags > li {
-    background: @red;
-    display: inline-block;
-    padding: 1%;
-    margin: 1%;
-    width: auto;
-}
+    ul.values {
+        height : 60%;
+    }
+    
+    ul.values > li {
+        background: @green;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 2%;
+    }
 
-ul.values > li {
-    background: @green;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 2%;
 }
