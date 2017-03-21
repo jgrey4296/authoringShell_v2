@@ -1,4 +1,5 @@
 # Javascript Shell Authoring v2
-    Uses the jgshell.js + rete.js in a preact wrapper to author rule systems and complex trees.  
+    A Modal editor to author graph/tree structures that include fsms and rules.
+    Incorporates a rete net.
     
 
