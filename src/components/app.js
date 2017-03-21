@@ -1,15 +1,11 @@
 import { h, Component } from 'preact';
-
 import Header from './header';
 import Home from './home';
+import Help from './help';
 import Footer from './footer';
 import { Shell } from 'JGShell';
 
 export default class App extends Component {
-	/** Gets fired when the route changes.
-	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-	 *	@param {string} event.url	The newly routed URL
-	 */
     constructor(){
         super();
         this.shell = new Shell();
@@ -19,17 +15,37 @@ export default class App extends Component {
             focusNode : this.shell.cwd(),
             searchState : 'default',
             searchResults : [],
-            path: []
+            path: [],
+            modalState : 'node'            
         };
+        this.updateUIState();
     }
 
 
     //function here to be passed to footer.input for parsing and triggering shell changes
     parseCallback(text){
+        //Hack for debug access
+        //TODO: Run a parsimmon parser here that falls back to the shell parser if necessary
+        if (/debug/.test(text)){
+            console.log(this.shell);
+            console.log(this.state);
+            return;
+        }
+        if (/modal/.test(text)){
+            if (/node/.test(this.state.modalState)){
+                this.setState({ modalState: 'help'});
+            } else {
+                this.setState({modalState: 'node'});
+            }
+            return;
+        }
+
+        //Not a UI Command, pass to the shell
         let parseResult = this.shell.parse(text);
         if (parseResult !== null){
             switch (parseResult.description) {
                 case 'help':
+                    //switch to the modal window
 				    console.log('todo: help');
                     break;
                 case 'json': {
@@ -42,8 +58,12 @@ export default class App extends Component {
                     console.log('unrecognised result: ', parseResult);
             }
         }
+        this.updateUIState()
+    }
+
+    updateUIState(){
+        //Run a default cwd to get the state, and trigger UI Updates:
         let result = this.shell.parse('cwd');
-        console.log('Result:',result);
         this.setState({ parents: result.inputs.map((d)=>this.shell.get(d.source.id)) });
         this.setState({ children: result.outputs.map((d)=>this.shell.get(d.dest.id)) });
         this.setState({ focusNode: result.node });
@@ -59,10 +79,21 @@ export default class App extends Component {
     }
 
     render() {
+        let body = null;
+        switch(this.state.modalState){
+            case 'node':
+                body = <Home focusNode={this.state.focusNode} parents={this.state.parents} children={this.state.children} searchState={this.state.searchState} searchResults={this.state.searchResults}/>;
+                break;
+            case 'help':
+                body = <Help />;
+                break;
+            default:
+                body = <div>This is the default value</div>;
+        }
         return (
 			    <div id="app">
 			    <Header path={this.state.path} />
-                <Home focusNode={this.state.focusNode} parents={this.state.parents} children={this.state.children} searchState={this.state.searchState} searchResults={this.state.searchResults}/>
+                {body}
                 <Footer callback={(text) => { this.parseCallback(text); }} />
 			    </div>
         );
