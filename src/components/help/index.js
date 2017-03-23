@@ -23,7 +23,7 @@ export default class Help extends Component {
     //Don't forget to destructure:
     render(props, state){
         return (
-            <div>
+                <div className={style.helpWindow}>
             This is the help section.
             </div>
         );
