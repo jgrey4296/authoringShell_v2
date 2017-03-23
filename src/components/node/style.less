@@ -17,16 +17,22 @@
         display: block;
         background: @lightBlue;
         text-align: center;
-        overflow: hidden;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
         text-overflow: ellipsis;
         padding-left: 10%;
         padding-right: 10%;
+        padding-bottom: 5%;
+        padding-top: 5%;
         
         span[type=id] {
             color: red;
+            padding-right: 30px;
         }
         span[type=name]{
             color: black;
+            padding-right: 30px;
         }
     }
 

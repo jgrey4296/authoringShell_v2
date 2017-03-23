@@ -1,16 +1,23 @@
 @import '~style/helpers';
 
 .nodeEntry {
-    overflow: scroll;
-
+    overflow-x: scroll;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 5px;
+    
     span[value=name] {
         display: inline;
-        color: white;
+        color: red;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     span[value=value] {
         display: inline;
         color: black;
+        padding-right: 30px;
     }
     
 }
