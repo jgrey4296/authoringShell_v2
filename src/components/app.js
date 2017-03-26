@@ -39,6 +39,9 @@ export default class App extends Component {
             }
             return;
         }
+        if(/help/.test(text)){
+            this.setState({modalState:'help'});
+        }
 
         //Not a UI Command, pass to the shell
         let parseResult = this.shell.parse(text);
@@ -46,7 +49,7 @@ export default class App extends Component {
             switch (parseResult.description) {
                 case 'help':
                     //switch to the modal window
-				    console.log('todo: help');
+                    this.setState({modalstate:'help'});
                     break;
                 case 'json': {
                     let text = parseResult.text;
@@ -61,6 +64,14 @@ export default class App extends Component {
         this.updateUIState()
     }
 
+
+    // Create the help text to scroll along the footer
+    getHelpText(){
+        return "Tree Authoring Shell: Commands: cd {id} | @{id}. set tag {tags} | #{tag}, set value {variable} {value} | ${variable}: {value}, rm {id}, link {id} {id} | {id} > {id}, stash, unstash, prior | <, search {type} {variable} {value}";
+
+    }
+
+    
     updateUIState(){
         //Run a default cwd to get the state, and trigger UI Updates:
         let result = this.shell.parse('cwd');
@@ -94,7 +105,7 @@ export default class App extends Component {
 			    <div id="app">
 			    <Header path={this.state.path} />
                 {body}
-                <Footer callback={(text) => { this.parseCallback(text); }} />
+                <Footer helpText={this.getHelpText()} callback={(text) => { this.parseCallback(text); }} />
 			    </div>
         );
     }

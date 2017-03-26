@@ -1,21 +1,41 @@
 @import '~style/helpers';
+@import '~style/scrollingText';
 
 .footer {
+    @currBackground: @olive;
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: 56px;
 	padding: 0;
-	background: @olive;
+	background: @currBackground;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	z-index: 50;
 
     input {
     	position: relative;
     	display: block;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
         width: 35%;
-        top: 25%;
     }
+
+    .info {
+        .marquee(@currBackground);
+        background: @currBackground;
+        color: white;
+        display: block;
+        top: 0%;
+        width: 100%;
+        height: 1.3em;
+
+        
+    }
+
+    .info::first-letter{
+        color: red;
+    }
+    
 }
