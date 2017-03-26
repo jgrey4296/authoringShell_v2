@@ -1,0 +1,55 @@
+//From http://jsfiddle.net/jonathansampson/yxppkv3j/
+.marquee(@backgroundColor) {
+    overflow: hidden;
+    display: block;
+    width: 50%;
+    position: relative;
+    padding-left: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    animation: reduce 20s linear infinite;
+
+    span {
+        white-space: nowrap;
+        display: inline-block;
+        width: 100%;
+        /* Some browsers may require -webkit-animation */
+        animation: scroll 20s linear infinite;
+    }
+    
+    //Gradients:
+    &::before, &::after {
+        z-index: 1;
+        top: 0; left: 0;
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        content: ""; display: block;
+        background: linear-gradient( to right,@backgroundColor, transparent );
+    }
+    
+    &::after {
+        left: auto; right: 0;
+        transform: rotate(180deg);
+    }
+
+    //Stop on hover:
+    &:hover {
+        animation-play-state: paused;
+        span {
+            animation-play-state: paused;
+        }
+    }
+ }
+/* Some browsers may require @-webkit-keyframes */
+@keyframes reduce {
+    to {
+        padding-left: 0;
+    }
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX( -100% );
+    }
+}
