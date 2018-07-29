@@ -8,7 +8,7 @@ export default class Condition extends Component {
         name : React.PropTypes.string,
         conditionType : React.PropTypes.string,
         constantTests : React.PropTypes.array,
-        bindings : React.PropTypes.object,
+        bindings : React.PropTypes.object
     };
     
     constructor(props){

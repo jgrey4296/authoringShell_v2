@@ -35,9 +35,9 @@ export default class Rule extends Component {
         
         return (
                 <div>
-                <Column pos='5%' side='left' data={conditions} name='Conditions'>
-                <Node data={core}>
-                <Column pos='5%' side='right' data={actions} name='Actions'>
+                <Column pos='5%' side='left' data={conditions} name='Conditions'/>
+                <Node data={core}/>
+                <Column pos='5%' side='right' data={actions} name='Actions'/>
                 </div>
         );
     }

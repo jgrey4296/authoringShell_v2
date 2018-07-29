@@ -3,7 +3,7 @@ import Header from './header';
 import Home from './home';
 import Help from './help';
 import Footer from './footer';
-import { Shell } from 'JGShell';
+import Shell from 'JGShell';
 
 export default class App extends Component {
     constructor(){
@@ -16,7 +16,9 @@ export default class App extends Component {
             searchState : 'default',
             searchResults : [],
             path: [],
-            modalState : 'node'            
+            modalState : 'node',
+            stash: []
+            
         };
         this.updateUIState();
     }
@@ -39,7 +41,7 @@ export default class App extends Component {
             }
             return;
         }
-        if(/help/.test(text)){
+        if (/help/.test(text)){
             this.setState({modalState:'help'});
         }
 
@@ -61,7 +63,7 @@ export default class App extends Component {
                     console.log('unrecognised result: ', parseResult);
             }
         }
-        this.updateUIState()
+        this.updateUIState();
     }
 
 
@@ -87,11 +89,14 @@ export default class App extends Component {
         }
         this.setState({ searchResults : result.searchResults.map((d)=>this.shell.get(d))});
         this.setState({ path : result.currentPath });
+        this.setState({ stash: result.stash });
     }
 
+
+    
     render() {
         let body = null;
-        switch(this.state.modalState){
+        switch (this.state.modalState){
             case 'node':
                 body = <Home focusNode={this.state.focusNode} parents={this.state.parents} children={this.state.children} searchState={this.state.searchState} searchResults={this.state.searchResults}/>;
                 break;
