@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import React from 'react';
-import style from './style';
+import style from './style.less';
 import Condition from '../condition';
 import Action from '../action';
 import Column from '../column';
@@ -34,11 +34,11 @@ export default class Rule extends Component {
             core = {};
         
         return (
-                <div>
+            <div>
                 <Column pos='5%' side='left' data={conditions} name='Conditions'/>
                 <Node data={core}/>
                 <Column pos='5%' side='right' data={actions} name='Actions'/>
-                </div>
+            </div>
         );
     }
 

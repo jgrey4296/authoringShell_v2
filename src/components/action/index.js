@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import React from 'react';
-import style from './style';
+import style from './style.less';
 
 export default class Action extends Component {
     propTypes = {
@@ -30,7 +30,7 @@ export default class Action extends Component {
     render(props, state){
         //todo: be able to minimise
         return (
-                <div>
+            <div>
                 //todo: draw the id, name, tags, value, arith mods, regex mods, timing, priority
             </div>
         );

@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import React from 'react'; //aliased, for proptypes
-import style from './style';
+import style from './style.less';
 
 /**
    General help display
@@ -23,7 +23,7 @@ export default class Help extends Component {
     //Don't forget to destructure:
     render(props, state){
         return (
-                <div className={style.helpWindow}>
+            <div className={style.helpWindow}>
             This is the help section.
             </div>
         );

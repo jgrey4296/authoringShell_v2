@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.less';
 
 export default class ColumnEntry extends Component {
     constructor(props){
@@ -16,10 +16,10 @@ export default class ColumnEntry extends Component {
 
     render({key, data}, state){
         return (
-                <li className={style.columnEntry}>
+            <li className={style.columnEntry}>
                 <span type='id'>{data.id}:  </span>
                 <span type='name'>{data.name()}</span>
-                </li>
+            </li>
         );
     }
 

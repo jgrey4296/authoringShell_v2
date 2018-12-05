@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.less';
 import Column from '../column';
 import Node from '../node';
 import SearchColumn from '../searchColumn';
@@ -11,14 +11,14 @@ export default class Home extends Component {
         this.state = { };
     }
     
-    render({focusNode, parents, children, searchState, searchResults}) {
+    render({focusNode, sparents, schildren, searchState, searchResults}) {
         return (
 			    <div className={style.home}>
-                <Column pos="5%" side="left" data={parents} name="Parents"/>
+                <Column pos="5%" side="left" data={sparents} name="Parents"/>
                 <Node data={focusNode} />
-                <Column pos="5%" side="right" data={children} name="Children"/>
+                <Column pos="5%" side="right" data={schildren} name="Children"/>
                 <SearchColumn searchState={searchState} data={searchResults}/>
-                </div>
+            </div>
         );
     }
 }

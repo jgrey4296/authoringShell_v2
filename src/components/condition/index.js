@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import React from 'react';
-import style from './style';
+import style from './style.less';
 
 export default class Condition extends Component {
     propTypes = {
@@ -25,7 +25,7 @@ export default class Condition extends Component {
     //Don't forget to destructure:
     render(props, state){
         return (
-                <div>
+            <div>
                 //todo: add constant tests, bindings
             </div>
         );

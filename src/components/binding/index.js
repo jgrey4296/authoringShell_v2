@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.less';
 
 export default class Binding extends Component {
     constructor(props){
@@ -16,7 +16,7 @@ export default class Binding extends Component {
     //Don't forget to destructure:
     render(props, state){
         return (
-                <div>
+            <div>
 
             </div>
         );

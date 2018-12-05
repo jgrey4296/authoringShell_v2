@@ -98,7 +98,7 @@ export default class App extends Component {
         let body = null;
         switch (this.state.modalState){
             case 'node':
-                body = <Home focusNode={this.state.focusNode} parents={this.state.parents} children={this.state.children} searchState={this.state.searchState} searchResults={this.state.searchResults}/>;
+                body = <Home focusNode={this.state.focusNode} sparents={this.state.parents} schildren={this.state.children} searchState={this.state.searchState} searchResults={this.state.searchResults}/>;
                 break;
             case 'help':
                 body = <Help />;

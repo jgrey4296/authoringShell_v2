@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.less';
 
 export default class NodeEntry extends Component {
     constructor(props){
@@ -16,7 +16,7 @@ export default class NodeEntry extends Component {
     //Don't forget to destructure:
     render({ varName, value }, state){
         return (
-                <li className={style.nodeEntry}>
+            <li className={style.nodeEntry}>
                 <span value='name'>{varName}{value !== null ? ':' : ''} </span>
                 {value !== null ? <span value='value'>{value}</span> : '' }
             </li>

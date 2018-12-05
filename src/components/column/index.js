@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.less';
 import ColumnEntry from '../columnEntry';
 
 export default class Column extends Component {
@@ -20,12 +20,12 @@ export default class Column extends Component {
             listItems = data.map((d)=><ColumnEntry key={d.id} data={d} />);
         //Need to add the list
         return (
-                <div className={style.column} style={styleString}>
+            <div className={style.column} style={styleString}>
                 <h1>{name}</h1>
                 <ul>
-                {listItems}
+                    {listItems}
                 </ul>
-                </div>
+            </div>
         );
     }
 

@@ -1,11 +1,12 @@
 import { h, Component } from 'preact';
 import React from 'react';
-import style from './style';
+import style from './style.less';
+import PropTypes from 'prop-types';
 
 export default class Footer extends Component {
     propTypes = {
-        helpText: React.PropTypes.String,
-        callback : React.PropTypes.func
+        helpText: PropTypes.String,
+        callback : PropTypes.func
     };
     
     constructor(props){
@@ -26,12 +27,12 @@ export default class Footer extends Component {
     
     render({helpText}) {
         return (
-			<footer className={style.footer}>
+            <footer className={style.footer}>
                 <input id="shellInput" type="text" value={this.state.value} onChange={this.handleChange} autoFocus />
                 <div className={style.info}>
-                <span>{helpText}</span>
+                    <span>{helpText}</span>
                 </div>
-			</footer>
+            </footer>
         );
     }
 }
